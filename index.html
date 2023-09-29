@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ob-havo ilovasi | Abdulxoliq</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="Images/favicon.png" type="image/png">
+    <!-- Style -->
+    <link rel="stylesheet" href="Styles/style.css">
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Keywords -->
+    <meta name="description" content="In this weather app project, users can enter any city name to get the weather forecast or simply click on the Use Current Location button to get current location weather details, including temperature, wind speed, humidity, and more.">
+    <meta name="keywords" content="ob havo, ilova, abdulkhaliq, abdul, abdulxoliq, dev, abdul-dev,  javascript weather app,weather app javascript,weather app,html weather app,css weather app,weather app html css javascript,weather app tutorial,weather app project,openweathermap api javascript,weather forecast,html css javascript tutorial,front-end development,html css,web app development,web development,weather api integration,web development tutorial,coding tutorial,beginner-friendly tutorial,step-by-step tutorial,front-end programming,Javascript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Scripts -->
+    <script src="Scripts/script.js" defer></script>
+    <!-- No Download And Hide Files -->
+    <script src="Scripts/custom-scripts.js" defer></script>
+</head>
+
+<body>
+    <h1>Ob-havo boshqaruv paneli</h1>
+    <div class="container">
+        <div class="weather-input">
+            <h3>Shahar nomini kiriting</h3>
+            <input class="city-input" type="text" placeholder="Masalan, Nyu-York, London, Tokio">
+            <button class="search-btn">Qidirmoq</button>
+            <div class="separator"></div>
+            <button class="location-btn">Joriy joylashuvdan foydalaning</button>
+        </div>
+        <div class="weather-data">
+            <div class="current-weather">
+                <div class="details">
+                    <h2>_______ ( ______ )</h2>
+                    <h6>Harorat: __°C</h6>
+                    <h6>Shamol: __ M/S</h6>
+                    <h6>Namlik: __%</h6>
+                </div>
+            </div>
+            <div class="days-forecast">
+                <h2>5 kunlik prognoz</h2>
+                <ul class="weather-cards">
+                    <li class="card">
+                        <h3>( ______ )</h3>
+                        <h6>Harorat: __C</h6>
+                        <h6>Shamol: __ M/S</h6>
+                        <h6>Namlik: __%</h6>
+                    </li>
+                    <li class="card">
+                        <h3>( ______ )</h3>
+                        <h6>Harorat: __C</h6>
+                        <h6>Shamol: __ M/S</h6>
+                        <h6>Namlik: __%</h6>
+                    </li>
+                    <li class="card">
+                        <h3>( ______ )</h3>
+                        <h6>Harorat: __C</h6>
+                        <h6>Shamol: __ M/S</h6>
+                        <h6>Namlik: __%</h6>
+                    </li>
+                    <li class="card">
+                        <h3>( ______ )</h3>
+                        <h6>Harorat: __C</h6>
+                        <h6>Shamol: __ M/S</h6>
+                        <h6>Namlik: __%</h6>
+                    </li>
+                    <li class="card">
+                        <h3>( ______ )</h3>
+                        <h6>Harorat: __C</h6>
+                        <h6>Shamol: __ M/S</h6>
+                        <h6>Namlik: __%</h6>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="developer">
+        <p class="dev-title">Copyright © 2023 Ochildiyev AbdulXaliq Barcha huquqlar himoyalangan</p>
+    </div>
+
+    <!-- Code injected by live-server -->
+    <script>
+        // <![CDATA[  <-- For SVG support
+        if ('WebSocket' in window) {
+            (function() {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        var parent = elem.parentElement || head;
+                        parent.removeChild(elem);
+                        var rel = elem.rel;
+                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                        }
+                        parent.appendChild(elem);
+                    }
+                }
+                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                var address = protocol + window.location.host + window.location.pathname + '/ws';
+                var socket = new WebSocket(address);
+                socket.onmessage = function(msg) {
+                    if (msg.data == 'reload') window.location.reload();
+                    else if (msg.data == 'refreshcss') refreshCSS();
+                };
+                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                    console.log('Live reload enabled.');
+                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                }
+            })();
+        } else {
+            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+        }
+        // ]]>
+    </script>
+</body>
+
+</html>
