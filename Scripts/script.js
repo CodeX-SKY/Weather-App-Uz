@@ -10,9 +10,9 @@ const createWeatherCard = (cityName, weatherItem, index) => {
     if (index === 0) { // HTML for the main weather card
         return `<div class="details">
                     <h2>${cityName} (${weatherItem.dt_txt.split(" ")[0]})</h2>
-                    <h6>Temperature: ${(weatherItem.main.temp - 273.15).toFixed(2)}°C</h6>
-                    <h6>Wind: ${weatherItem.wind.speed} M/S</h6>
-                    <h6>Humidity: ${weatherItem.main.humidity}%</h6>
+                    <h6>Harorat: ${(weatherItem.main.temp - 273.15).toFixed(2)}°C</h6>
+                    <h6>Shamol: ${weatherItem.wind.speed} M/S</h6>
+                    <h6>Namlik: ${weatherItem.main.humidity}%</h6>
                 </div>
                 <div class="icon">
                     <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@4x.png" alt="weather-icon">
@@ -22,9 +22,9 @@ const createWeatherCard = (cityName, weatherItem, index) => {
         return `<li class="card">
                     <h3>(${weatherItem.dt_txt.split(" ")[0]})</h3>
                     <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@4x.png" alt="weather-icon">
-                    <h6>Temp: ${(weatherItem.main.temp - 273.15).toFixed(2)}°C</h6>
-                    <h6>Wind: ${weatherItem.wind.speed} M/S</h6>
-                    <h6>Humidity: ${weatherItem.main.humidity}%</h6>
+                    <h6>Harorat: ${(weatherItem.main.temp - 273.15).toFixed(2)}°C</h6>
+                    <h6>Shamol: ${weatherItem.wind.speed} M/S</h6>
+                    <h6>Namlik: ${weatherItem.main.humidity}%</h6>
                 </li>`;
     }
 }
@@ -57,7 +57,7 @@ const getWeatherDetails = (cityName, latitude, longitude) => {
             }
         });
     }).catch(() => {
-        alert("An error occurred while fetching the weather forecast!");
+        alert("Ob-havo maʼlumotlarini olishda xatolik yuz berdi!");
     });
 }
 
@@ -68,7 +68,7 @@ const getCityCoordinates = () => {
 
     // Get entered city coordinates (latitude, longitude, and name) from the API response
     fetch(API_URL).then(response => response.json()).then(data => {
-        if (!data.length) return alert(`No coordinates found for ${cityName}`);
+        if (!data.length) return alert(`${cityName} qidiruvi bo'yicha koordinatalar topilmadi`);
         const {
             lat,
             lon,
@@ -76,7 +76,7 @@ const getCityCoordinates = () => {
         } = data[0];
         getWeatherDetails(name, lat, lon);
     }).catch(() => {
-        alert("An error occurred while fetching the coordinates!");
+        alert("Koordinatalarni olishda xatolik yuz berdi!");
     });
 }
 
@@ -95,14 +95,14 @@ const getUserCoordinates = () => {
                 } = data[0];
                 getWeatherDetails(name, latitude, longitude);
             }).catch(() => {
-                alert("An error occurred while fetching the city name!");
+                alert("Shahar nomini olishda xatolik yuz berdi!");
             });
         },
         error => { // Show alert if user denied the location permission
             if (error.code === error.PERMISSION_DENIED) {
-                alert("Geolocation request denied. Please reset location permission to grant access again.");
+                alert("Geolokatsiya soʻrovi rad etildi. Qayta ruxsat berish uchun joylashuv ruxsatini qayta o‘rnating.");
             } else {
-                alert("Geolocation request error. Please reset location permission.");
+                alert("Geolokatsiya soʻrovi xatosi. Joylashuv ruxsatini qayta tiklang.");
             }
         });
 }

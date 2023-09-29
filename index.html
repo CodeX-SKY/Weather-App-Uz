@@ -109,12 +109,12 @@
                     else if (msg.data == 'refreshcss') refreshCSS();
                 };
                 if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-                    console.log('Live reload enabled.');
+                    console.log('Jonli qayta yuklash yoqilgan.');
                     sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
                 }
             })();
         } else {
-            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+            console.error("Brauzeringizni yangilang. Ushbu Brauzer Live-Reloading uchun WebSocket-ni qo'llab-quvvatlamaydi.");
         }
         // ]]>
     </script>
